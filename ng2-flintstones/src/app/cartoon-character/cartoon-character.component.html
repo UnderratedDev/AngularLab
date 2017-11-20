@@ -1,0 +1,22 @@
+<table *ngIf="characters" border="1">
+  <thead>
+    <tr>
+      <th>Person ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Occupation</th>
+      <th>Gender</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of characters; let i=index;" (click)="onSelect(c)" [class.selected]="c === selected">
+      <td>{{c.PersonId}}</td>
+      <td>{{c.FirstName}}</td>
+      <td>{{c.LastName}}</td>
+      <td>{{c.Occupation}}</td>
+      <td>{{c.Gender}}</td>
+      <td><button class="delete" (click)="delete(c); $event.stopPropagation()">x</button></td>
+    </tr>
+  </tbody>
+</table>
